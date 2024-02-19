@@ -12,10 +12,10 @@
 }
 
 .card-body {
-    min-height: 150px;
+    height: 200px;
 }
 
 .card {
-    min-height: 500px;
+    height: 480px;
     width: 300px;
 }
