@@ -15,17 +15,50 @@
     </head>
     <body>
 
-        <header>
-            HEADER
-        </header>
+    <main class="bg-primary-subtle">
+    <div class="container py-4">
 
-        <main>
-            MAIN
-        </main>
+        <h1 class="text-center">Animal Shop<i class="fa-solid fa-otter"></i></h1>
 
-        <footer>
-            FOOTER
-        </footer>
+        <?php
+        // Raggruppa i prodotti per categoria
+        $productsByGenre = [];
+        foreach ($products as $product) {
+            $productsByGenre[$product->genre->name][] = $product;
+        }
+
+        // Itera su ciascuna categoria e stampa le card dei prodotti
+        foreach ($productsByGenre as $genreName => $products) {
+            echo "<h2 class='mt-4'>" . htmlspecialchars($genreName) . " <i class='" . htmlspecialchars($products[0]->genre->icon) . "'></i></h2>";
+            echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+            foreach ($products as $product) {
+                echo '
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="' . htmlspecialchars($product->image) . '" class="card-img-top" alt="' . htmlspecialchars($product->name) . '" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">' . htmlspecialchars($product->name) . '</h5>
+                                <p class="card-text">Prezzo: €' . htmlspecialchars($product->price) . '</p>
+                                <p class="card-text">
+                                    <i class="' . htmlspecialchars($product->genre->icon) . '"></i> ' . htmlspecialchars($product->genre->name) . '
+                                </p>
+                                <p class="card-text">
+                                    <i class="' . htmlspecialchars($product->typeIcon) . '"></i>
+                                    ' . htmlspecialchars($product->type) . '
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+            echo '</div>';
+        }
+        ?>
+    </div>
+</main>
+
+
+
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>

@@ -4,13 +4,13 @@
 
     class kennel extends product{
         public $material;
-        public $dimension;
+        public $dimensions;
 
-        public function __construct($name, $price, $genre, $image, $material, $dimension)
+        public function __construct($name, $price, $genre, $image, $type, $typeIcon, $material, $dimensions)
         {
             $this->material = $material;
-            $this->dimension = $dimension;
-            parent::__construct($name, $price, $genre, $image);
+            $this->dimensions = $dimensions;
+            parent::__construct($name, $price, $genre, $image, $type, $typeIcon);
         }
     }
 

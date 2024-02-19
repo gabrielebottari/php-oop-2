@@ -5,3 +5,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain;
+}
+
+.card-body {
+    height: 180px;
+}
+
+.card {
+    height: 500px;
+    width: 300px;
+}

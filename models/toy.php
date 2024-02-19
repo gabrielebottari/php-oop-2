@@ -6,11 +6,11 @@
         public $material;
         public $characteristics;
 
-        public function __construct($name, $price, $genre, $image, $material, $characteristics)
+        public function __construct($name, $price, $genre, $image, $type, $typeIcon, $material, $characteristics)
         {
             $this->material = $material;
             $this->characteristics = $characteristics;
-            parent::__construct($name, $price, $genre, $image);
+            parent::__construct($name, $price, $genre, $image, $type, $typeIcon);
         }
     }
 

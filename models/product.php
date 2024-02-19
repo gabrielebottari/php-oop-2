@@ -9,14 +9,18 @@
         public $name;
         public $price;
         public $genre;
-        public $image; 
+        public $image;
+        public $type;
+        public $typeIcon; 
 
-        public function __construct($name, $price, $genre, $image)
+        public function __construct($name, $price, $genre, $image, $type, $typeIcon)
         {
             $this->name = $name;
             $this->price = $price;
             $this->genre = $genre;
             $this->image = $image;
+            $this->type = $type;
+            $this->typeIcon = $typeIcon;
         }
     }
 

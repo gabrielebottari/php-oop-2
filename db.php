@@ -2,20 +2,25 @@
 
     include __DIR__ . '/models/product.php';
 
-    $cane = new genre('Cane');
-    $gatto = new genre('Gatto');
-
-    $products = [
-        new food('Cibo per Cani Premium', 24.99, $cane, 'url_immagine_cibo_cane.jpg', 'Pollo, Riso'),
-        new toy('Palla interattiva', 9.99, $cane, 'url_immagine_palla.jpg', 'Gomma', 'Interattiva e resistente'),
-        new kennel('Cuccia per Gatti Comoda', 49.99, $gatto, 'url_immagine_cuccia_gatto.jpg', 'Tessuto', '60x40x40cm'),
+    $genre = [
+        'cane' => new genre('cane', 'fa-solid fa-dog'),
+        'gatto' => new genre('gatto', 'fa-solid fa-cat')
     ];
 
+    $products = [
+        new food('Cibo per Cani Premium', 24.99, $genre['cane'], 'https://www.bauzaar.it/media/catalog/product/g/r/grafiche-magento-bauzaar_-_2023-04-27t124555.602.jpg?width=700&height=700&store=default&image-type=image','Cibo', 'fa-solid fa-utensils', 'Agnello, Piselli'),
+        new toy('Palla interattiva', 9.99, $genre['cane'], 'https://www.pacopetshop.it/3500-thickbox_default/palla-5-sensi-gioco-per-cani.jpg', 'Gioco', 'fa-solid fa-gamepad', 'Gomma', 'Interattiva e resistente'),
+        new toy('Tiragraffi per Gatti',71.99, $genre['gatto'], 'https://shop-cdn-m.mediazs.com/bilder/5/400/115905_pla_modern_living_kb_amora_fg_4024_5.jpg', 'Cuccia', 'fa-solid fa-house', 'Sisal', '60x40x112cm'),
+        new kennel('Cuccia per Gatti Comoda', 49.99, $genre['gatto'], 'https://shop-cdn-m.mediazs.com/bilder/2/400/24722_PLA_Katzenhaus_Pueblo_Mix4_809_17_2.jpg', 'Cuccia', 'fa-solid fa-house', 'Vimini Intrecciato', '56x36x42cm'),
+    ];
+
+    /*
     foreach ($products as $product) {
         echo "Nome: " . $product->name . "<br>";
         echo "Prezzo: €" . $product->price . "<br>";
         echo "Categoria: " . $product->genre->name . "<br>";
         echo "Immagine: <img src='" . $product->image . "' alt='" . $product->name . "'><br><br>";
     }
+    */
 
 ?>
