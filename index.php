@@ -1,5 +1,5 @@
 <?php
-    echo 'Template PHP';
+    include __DIR__ . '/db.php';
 ?>
 
 <!DOCTYPE html>
