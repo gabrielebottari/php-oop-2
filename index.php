@@ -16,46 +16,67 @@
     <body>
 
     <main class="bg-primary-subtle">
-    <div class="container py-4">
+        <div class="container py-4">
 
-        <h1 class="text-center">Animal Shop<i class="fa-solid fa-otter"></i></h1>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><h1 class="fw-3">Animal Shop<i class="fa-solid fa-otter"></i></h1></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/Classe114/php-oop-2/login.php">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/Classe114/php-oop-2/cart.php"><i class="fas fa-shopping-cart"></i> Carrello</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
-        <?php
-        // Raggruppa i prodotti per categoria
-        $productsByGenre = [];
-        foreach ($products as $product) {
-            $productsByGenre[$product->genre->name][] = $product;
-        }
-
-        // Itera su ciascuna categoria e stampa le card dei prodotti
-        foreach ($productsByGenre as $genreName => $products) {
-            echo "<h2 class='mt-4'>" . htmlspecialchars($genreName) . " <i class='" . htmlspecialchars($products[0]->genre->icon) . "'></i></h2>";
-            echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+            <?php
+            
+            $productsByGenre = [];
             foreach ($products as $product) {
-                echo '
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="' . htmlspecialchars($product->image) . '" class="card-img-top" alt="' . htmlspecialchars($product->name) . '" style="height: 200px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title">' . htmlspecialchars($product->name) . '</h5>
-                                <p class="card-text">Prezzo: €' . htmlspecialchars($product->price) . '</p>
-                                <p class="card-text">
-                                    <i class="' . htmlspecialchars($product->genre->icon) . '"></i> ' . htmlspecialchars($product->genre->name) . '
-                                </p>
-                                <p class="card-text">
-                                    <i class="' . htmlspecialchars($product->typeIcon) . '"></i>
-                                    ' . htmlspecialchars($product->type) . '
-                                </p>
+                $productsByGenre[$product->genre->name][] = $product;
+            }
+
+            foreach ($productsByGenre as $genreName => $products) {
+                echo "<h2 class='mt-4'>" . htmlspecialchars($genreName) . " <i class='" . htmlspecialchars($products[0]->genre->icon) . "'></i></h2>";
+                echo '<div class="row row-cols-1 row-cols-md-2">';
+                foreach ($products as $product) {
+                    echo '
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="' . htmlspecialchars($product->image) . '" class="card-img-top" alt="' . htmlspecialchars($product->name) . '" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . htmlspecialchars($product->name) . '</h5>
+                                    <p class="card-text">Prezzo: €' . htmlspecialchars($product->price) . '</p>
+                                    <p class="card-text">
+                                        <i class="' . htmlspecialchars($product->genre->icon) . '"></i> ' . htmlspecialchars($product->genre->name) . '
+                                    </p>
+                                    <p class="card-text">
+                                        <i class="' . htmlspecialchars($product->typeIcon) . '"></i>
+                                        ' . htmlspecialchars($product->type) . '
+                                    </p>
+                                    <form action="http://localhost/Classe114/php-oop-2/add-to-cart.php" method="post">
+                                        <input type="hidden" name="productName" value="' . htmlspecialchars($product->name) . '">
+                                        <input type="hidden" name="productPrice" value="' . htmlspecialchars($product->price) . '">
+                                        <button type="submit" class="btn btn-primary">Aggiungi al Carrello <i class="fa-solid fa-cart-shopping"></i></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ';
+                    ';
+                }
+                echo '</div>';
             }
-            echo '</div>';
-        }
-        ?>
-    </div>
-</main>
+            ?>
+        </div>
+    </main>
 
 
 

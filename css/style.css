@@ -7,15 +7,15 @@
 }
 
 .card-img-top {
-    height: 250px;
+    min-height: 250px;
     object-fit: contain;
 }
 
 .card-body {
-    height: 180px;
+    min-height: 150px;
 }
 
 .card {
-    height: 500px;
+    min-height: 500px;
     width: 300px;
 }
