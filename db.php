@@ -1,5 +1,5 @@
 <?php
-
+/*
     include __DIR__ . '/models/product.php';
 
     $genre = [
@@ -16,7 +16,6 @@
         new kennel('Cuccia per Gatti Comoda', 49.99, $genre['gatto'], 'https://shop-cdn-m.mediazs.com/bilder/2/400/24722_PLA_Katzenhaus_Pueblo_Mix4_809_17_2.jpg', 'Cuccia', 'fa-solid fa-house', 'Vimini Intrecciato', '56x36x42cm'),
     ];
 
-    /*
     foreach ($products as $product) {
         echo "Nome: " . $product->name . "<br>";
         echo "Prezzo: €" . $product->price . "<br>";
@@ -24,5 +23,4 @@
         echo "Immagine: <img src='" . $product->image . "' alt='" . $product->name . "'><br><br>";
     }
     */
-
 ?>

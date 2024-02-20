@@ -1,17 +1,19 @@
 <?php
 
-    include __DIR__ . '/food.php';
-    include __DIR__ . '/genre.php';
-    include __DIR__ . '/kennel.php';
-    include __DIR__ . '/toy.php';
+    //include __DIR__ . '/food.php';
+    //include __DIR__ . '/genre.php';
+    //include __DIR__ . '/kennel.php';
+    //include __DIR__ . '/toy.php';
+    //include __DIR__ . '/discountable.php';
+    //include __DIR__ . '/exceptions.php';
 
-    class product{
+    class Product{
         public $name;
         public $price;
         public $genre;
         public $image;
         public $type;
-        public $typeIcon; 
+        public $typeIcon;
 
         public function __construct($name, $price, $genre, $image, $type, $typeIcon)
         {
@@ -22,6 +24,7 @@
             $this->type = $type;
             $this->typeIcon = $typeIcon;
         }
+
     }
 
 ?>
