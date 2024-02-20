@@ -16,7 +16,7 @@
             parent::__construct($name, $price, $genre, $image, $type, $typeIcon);
         }
 
-        protected $stock = 0;
+        protected $stock = 10;
 
         public function purchase($quantity) {
             if ($this->stock < $quantity) {

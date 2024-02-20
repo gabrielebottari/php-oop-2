@@ -106,7 +106,18 @@
                                     <form action="http://localhost/Classe114/php-oop-2/add-to-cart.php" method="post">
                                         <input type="hidden" name="productName" value="' . htmlspecialchars($product->name) . '">
                                         <input type="hidden" name="productPrice" value="' . htmlspecialchars($product->price) . '">
-                                        <button type="submit" class="btn btn-primary">Aggiungi al Carrello <i class="fa-solid fa-cart-shopping"></i></button>
+                                       
+                                        <label for="productQuantity">Quantità:</label>
+                                        <div class="d-flex align-items-end justify-content-around">
+
+                                            <!-- Select per la quantità -->
+                                            
+                                            <input type="number" id="productQuantity" name="productQuantity" class="form-control w-25" value="1" min="1" max="99">
+                                            
+                                            <button type="submit" class="btn btn-primary mt-2">Aggiungi al Carrello <i class="fa-solid fa-cart-shopping"></i></button>
+
+                                        </div>
+
                                     </form>
                                 </div>
                             </div>
